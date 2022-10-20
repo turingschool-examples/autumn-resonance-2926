@@ -21,6 +21,7 @@ When you run rspec, you should have 11 failing tests to start.
 * You are allowed to use any references including notes, Google, lesson plans, etc.
 * Read each story carefully before you start working.
 * Commit Frequently, about every 15 - 30 minutes
+* Timebox yourself to 3 _contiguous_ hours
 * Push your code to your fork **once the time is up (not before!)**
 
 ## Submission
