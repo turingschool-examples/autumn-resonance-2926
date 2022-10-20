@@ -1,4 +1,4 @@
-# Hells Kitchen
+# Mod 2 - Week 3 IC
 
 This repository requires and has been tested on Ruby v2.7.4 and is based on Rails 5.2.8.
 
@@ -40,11 +40,12 @@ When you run rspec, you should have 11 failing tests to start.
 * No visual styling is required or expected
 * You do not need to test for or create any model validations.
 
-###  Overview
+# Hell's Kitchen
+### Overview
 
-We will be creating an application to track recipes and ingredients at Hell's Kitchen. 
+We will be creating an application to track Recipes and Ingredients at Hell's Kitchen. 
 
-Recipes will have a name, complexity and genre. For example Pasta, 2 (integer), Italian.
+Recipes will have a name, complexity and genre. For example: `name: "Pasta", complexity: 2, genre: "Italian"`. 
 
 Ingredients will have a name and a cost stored as an integer.
 
@@ -53,6 +54,7 @@ Ingredients will have a name and a cost stored as an integer.
  
 ```
 User Story 1
+
 As a visitor,
 When I visit '/ingredients'
 I see a list of all the ingredients including their name and cost
@@ -62,6 +64,7 @@ I see a list of all the ingredients including their name and cost
  
 ```
 User Story 2
+
 As a visitor,
 When I visit '/recipes/:id',
 Then I see the recipe's name, complexity and genre,
@@ -71,6 +74,7 @@ and I see a list of the names of the ingredients for the recipe.
 
 ```
 User Story 3
+
 As a visitor,
 When I visit '/recipes/:id'
 I see the total cost of all of the ingredients in the recipe.
@@ -91,7 +95,7 @@ Then I see that the list of ingredients is sorted alphabetically by name
 
 ```
 Extension 2
-Add an Ingredient to a Reciope
+Add an Ingredient to a Recipe
 
 As a visitor
 When I visit '/recipes/:id'
