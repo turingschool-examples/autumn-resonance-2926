@@ -1,0 +1,8 @@
+<h1><%= @recipe.name %></h1>
+<p>Complexity: <%= @recipe.complexity %></p>
+<p>Genre: <%= @recipe.genre %></p>
+
+<h3>Ingredients for <%= @recipe.name %>:</h3>
+<% @recipe.ingredients.map do |ing| %>
+  <p><%= ing.name %></p>
+<% end %>
