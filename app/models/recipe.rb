@@ -5,4 +5,8 @@ class Recipe < ApplicationRecord
   validates :name, presence: true
   validates :complexity, presence: true
   validates :genre, presence: true
+
+  def total_cost
+    self.ingredients.sum {|ing| ing.cost}
+  end
 end

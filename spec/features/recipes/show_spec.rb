@@ -12,12 +12,18 @@ RSpec.describe 'recipe show page', type: :feature do
     end
     it 'shows the recipe name, complexity, and genre, and list of ingredients for that recipe' do
       visit "/recipes/#{lasagna.id}"
-      save_and_open_page
+      
       expect(page).to have_content(lasagna.name)
       expect(page).to have_content(lasagna.complexity)
       expect(page).to have_content(lasagna.genre)
       expect(page).to have_content(beef.name)
       expect(page).to have_content(salt.name)
+    end
+
+    it 'shows the total cost of ingredients for the recipe' do
+      visit "/recipes/#{lasagna.id}"
+      
+      expect(page).to have_content("Total Cost: 6")
     end
   end
 end

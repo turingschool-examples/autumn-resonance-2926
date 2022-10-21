@@ -6,3 +6,5 @@
 <% @recipe.ingredients.map do |ing| %>
   <p><%= ing.name %></p>
 <% end %>
+
+<p>Total Cost: <%= @recipe.total_cost %></p>
