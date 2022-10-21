@@ -7,6 +7,7 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe 'relationships' do
+    it { should belong_to(:recipe) }
     it {should have_many :recipe_ingredients}
     it {should have_many(:recipes).through(:recipe_ingredients)}
   end
