@@ -5,4 +5,10 @@
 <%= "Ingredients:" %><br>
 <% @recipe.ingredients.each do |ingredient| %>
   <%= ingredient.name %><br>
-<% end %>
+<% end %><br>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :post do |form| %> 
+  <%= form.label :add_ingredient, "Add Valid Ingredient ID" %><br>
+  <%= form.text_field :add_ingredient %>
+  <%= form.submit "Submit" %>
+<% end %> 

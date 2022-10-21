@@ -7,6 +7,7 @@ RSpec.describe 'Recipe show' do
     @sauce = Ingredient.create!(name:'Sauce', cost:5)
     @peppperoni = Ingredient.create!(name:'Peppperoni', cost:8)
     @dough = Ingredient.create!(name:'Dough', cost:2)
+    @cheese = Ingredient.create!(name:'Cheese', cost:2)
     
     @pizza.ingredients << @sauce
     @pizza.ingredients << @peppperoni
@@ -30,6 +31,16 @@ RSpec.describe 'Recipe show' do
       visit "/recipes/#{@pizza.id}"
       
       expect(page).to have_content("Total Cost: 15")
+    end
+    
+    it "I see a form to add an ingredient to this recipe" do
+      visit "/recipes/#{@pizza.id}"
+      
+      fill_in "add_ingredient", with: "#{@cheese.id}"
+      click_on("Submit")
+      
+      expect(current_path).to eq("/recipes/#{@pizza.id}")
+      expect(page).to have_content(@cheese.name)
     end
   end
 end
