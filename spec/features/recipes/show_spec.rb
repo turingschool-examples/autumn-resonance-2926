@@ -4,6 +4,7 @@ RSpec.describe 'recipe show page', type: :feature do
   let!(:lasagna) {Recipe.create!(name: 'Lasagna', complexity: 3, genre: "Italian")}
   let!(:beef) {Ingredient.create!(name: 'Ground Beef', cost: 2)}
   let!(:salt) {Ingredient.create!(name: 'Salt', cost: 4)}
+  let!(:tomato) {Ingredient.create!(name: 'Tomato', cost: 4)}
 
   describe 'when a user checks the recipe show page' do
     before :each do
@@ -24,6 +25,16 @@ RSpec.describe 'recipe show page', type: :feature do
       visit "/recipes/#{lasagna.id}"
       
       expect(page).to have_content("Total Cost: 6")
+    end
+
+    it 'includes a form to add an ingredient' do
+      visit "/recipes/#{lasagna.id}"
+
+      fill_in('ID', with: tomato.id)
+      
+      click_button 'Add'
+      save_and_open_page
+      expect(page).to have_content(tomato.name)
     end
   end
 end
