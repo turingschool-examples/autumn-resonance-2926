@@ -2,6 +2,7 @@
   <p><%= "#{@recipe.name}" %></p>
   <p><%= "#{@recipe.complexity}" %></p>
   <p><%= "#{@recipe.genre}" %></p>
+  <p> Total Cost: <%= @recipe.total_cost %></p>
   <% @ingredients.each do |ingredient|%>
     <%= ingredient.name %>
   <% end %>
