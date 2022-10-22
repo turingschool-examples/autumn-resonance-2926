@@ -5,4 +5,7 @@ class Ingredient < ApplicationRecord
   validates :name, presence: true
   validates :cost, presence: true
 
+  def self.order_name
+    self.order(:name)
+  end
 end
