@@ -22,6 +22,7 @@ RSpec.describe Recipe, type: :model do
       RecipeIngredient.create!(recipe: @stock, ingredient: @onions)
       RecipeIngredient.create!(recipe: @stock, ingredient: @cellery)
     end
+
     it 'will get the sum cost of all ingredients in a recipe' do
       number = (@carrots.cost + @onions.cost + @cellery.cost)
       expect(@stock.total_cost).to eq(number)

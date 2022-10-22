@@ -3,11 +3,17 @@
 <p>Complexity: <%= @recipe.complexity %> / 10</p>
 <p>Genre: <%= @recipe.genre %></p>
 <p>Total Cost: <%= @recipe_cost %></p>
+<p>Add Ingredient: </p>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, local: true do |form| %>
+  <%= form.label :ingredient, "Ingredients:" %>
+  <%= form.select :ingredient, @ingredients.map {|ingredient| ingredient.name} %>
+  <%= form.submit "Submit" %>
+<% end %>
+
 <p>Ingredients: </p>
 <% @recipe.ingredients.each do |ingredient| %>
 <ul>
   <li><%= ingredient.name %></li>
 </ul>
 <% end %>
-
-Add route, controller, view, & test for ingredients
