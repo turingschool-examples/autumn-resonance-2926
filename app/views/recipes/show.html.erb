@@ -6,8 +6,14 @@ Complexity: <%= @recipe.complexity %>
 
 <p>Total Cost: <%= @recipe.total_cost %></p>
 
-
 <p><%= "Ingredients" %></p>
 <% @recipe.ingredients.each do |ingredient| %>
 <%= ingredient.name %>
+<% end %>
+<br>
+<h2><%= "Add an Ingredient" %></h2>
+<%= form_with url: "/recipes/#{@recipe.id}", method: :get, local: true do |form| %>
+<%= form.label "Ingredient id" %>
+<%= form.text_field :ingredient_id %>
+<%= form.submit "Submit" %>
 <% end %>
