@@ -7,6 +7,7 @@ RSpec.describe 'Ingredients' do
       visit '/ingredients'
       expect(page).to have_content(ingredient.name)
       expect(page).to have_content(ingredient.cost)
+      save_and_open_page
     end
   end
 end

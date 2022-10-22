@@ -5,7 +5,7 @@
     <th>Ingredient name</th>
     <th>Ingredient Cost</th>
   </tr>
-  <% @ingredients.each do |ingredient| %>
+  <% @ingredients.order_by_name.each do |ingredient| %>
     <tr>
       <td><%= ingredient.name %></td>
       <td><%= ingredient.cost %></td>
