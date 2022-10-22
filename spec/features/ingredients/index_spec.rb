@@ -11,7 +11,6 @@ RSpec.describe "User Story 1" do
         # save_and_open_page
         expect(page).to have_content("Ground Beef: 2")
         expect(page).to have_content("Salt: 4")
-
       end
     end
   end
