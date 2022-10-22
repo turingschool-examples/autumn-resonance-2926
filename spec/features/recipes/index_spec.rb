@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Recipes' do
   describe '#index' do
     food = Recipe.create!(name: 'spaghetti', complexity: 2, genre: 'italian')
-    it 'has a list of all recipes' do
+    xit 'has a list of all recipes' do
       visit '/recipes'
       expect(page).to have_content(food.name)
       expect(page).to have_link(food.name)
