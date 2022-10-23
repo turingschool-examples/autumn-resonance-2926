@@ -8,6 +8,8 @@
   <%= ingredient.name %>
 <% end %>
 
-<% @recipes.ingredients %>
+<% @recipes.ingredients.map do |ingredient| %>
+  <p>Total Cost: <%= ingredient.cost %> </p>
+<% end %>
 
-#I feel a lot of things, but i feel like im really close here. 
+ 

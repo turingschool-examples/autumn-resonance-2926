@@ -25,6 +25,11 @@ RSpec.describe Recipe do
       ingredient2 = Ingredient.create!(name: "Pasta:", cost: 5)
       ingredient3 = Ingredient.create!(name: "Parmesan Cheese:", cost: 8)
       ingredient4 = Ingredient.create!(name: "Tomato Sauce:", cost: 3)
+      recipe1.ingredients << ingredient1
+      recipe1.ingredients << ingredient2
+      recipe1.ingredients << ingredient3
+      recipe1.ingredients << ingredient4
+      # require 'pry'; binding.pry
       visit "/recipes/#{recipe1.id}"
 
       expect(page).to have_content("Total Cost: 18")
