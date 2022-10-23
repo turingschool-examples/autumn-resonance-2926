@@ -1,0 +1,19 @@
+<h1>Recipe: <%= @recipe.name %></h1>
+
+<p><%= "Complexity: #{@recipe.complexity}" %></p>
+<p><%= "Genre: #{@recipe.genre}" %></p>
+
+<h2>Ingredients: </h2>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
+
+<%= form_with url: "/recipes/#{@recipe.id}", local: true, method: :get do |f| %>
+  <%= f.label :ingredient_id, "Ingredient Id" %>
+  <%= f.text_field :ingredient_id %>
+  <%= f.button 'Add Ingredient' %>
+<% end %>
+
+<h2>Total Cost: <%= @recipe.total_cost %></h2>
