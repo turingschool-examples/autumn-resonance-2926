@@ -1,0 +1,9 @@
+
+<%= @recipes.name %>
+<%= @recipes.complexity %>
+<%= @recipes.genre %>
+
+
+<% @recipes.ingredients.map do |ingredient| %>
+  <%= ingredient.name %>
+  <% end %>
