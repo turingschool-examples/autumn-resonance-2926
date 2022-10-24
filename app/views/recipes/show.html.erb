@@ -1,0 +1,10 @@
+<h1>Recipe Show Page</h1>
+<p>Name: <%= @recipe.name %></p>
+<p>Complexity: <%= @recipe.complexity %></p>
+<p>Genre: <%= @recipe.genre %></p>
+<div id="ingredients">
+  Ingredients:
+  <% @ingredients.each do |ingredient| %>
+    <p><%= "- #{ingredient.name}" %></p>
+  <% end %> 
+</div>

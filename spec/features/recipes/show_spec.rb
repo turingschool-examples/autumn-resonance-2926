@@ -14,11 +14,11 @@ RSpec.describe "Recipes show page" do
         RecipeIngredient.create!(recipe: pasta_recipe, ingredient: tomatoes)
 
         visit "/recipes/#{pasta_recipe.id}"
-
+      
         expect(page).to have_content("Name: Pasta Marinara")
         expect(page).to have_content("Complexity: 1")
         expect(page).to have_content("Genre: Italian")
-        
+
         within "#ingredients" do 
           expect(page).to have_content("Ingredients:")
           expect(page).to have_content("- Penne Pasta")
