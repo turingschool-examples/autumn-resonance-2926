@@ -4,7 +4,9 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
 
-  def total_cost
-    self.sum(:cost)
+  def self.total_cost(ingredients)
+    ingredients.sum do |ingredient|
+      ingredient.cost
+    end
   end
 end
