@@ -25,7 +25,7 @@ RSpec.describe "Ingredients index page" do
         visit "/ingredients"
 
         expect("Avocados").to appear_before("Pecorino Cheese")
-        expect("Pecorino Cheese").to appear_before("Rigatoni Pasta")\
+        expect("Pecorino Cheese").to appear_before("Rigatoni Pasta")
       end
     end
   end
