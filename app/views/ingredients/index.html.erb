@@ -1,0 +1,9 @@
+<h1>Ingredients</h1>
+
+<%= form_with url: "/ingredients", method: :get, local: true do %>
+
+<% @ingredients.each do |ingredient| %>
+<p><%= ingredient.name %>:<%= ingredient.cost %></p>
+
+<% end %>
+<% end %>
