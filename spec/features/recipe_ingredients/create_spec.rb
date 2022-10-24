@@ -15,6 +15,8 @@ RSpec.describe "Creating a new ingredient for a recipe" do
         visit "/recipes/#{recipe.id}"
 
         within "#ingredients" do 
+          expect(page).to have_content("- Pecorino Cheese")
+          expect(page).to have_content("- Penne Pasta")
           expect(page).to_not have_content("- Tomatoes")
         end
 
@@ -30,6 +32,8 @@ RSpec.describe "Creating a new ingredient for a recipe" do
 
         within "#ingredients" do 
           expect(page).to have_content("- Tomatoes")
+          expect(page).to have_content("- Pecorino Cheese")
+          expect(page).to have_content("- Penne Pasta")
         end
       end
     end
