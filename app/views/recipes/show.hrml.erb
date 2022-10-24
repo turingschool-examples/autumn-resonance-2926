@@ -1,0 +1,11 @@
+<h1> Recipe for: <%= "#{@recipe.name}" %></h1>
+<p>Complexity: <%= "#{@recipe.complexity}" %>
+<p>Genre: <%= "#{@recipe.genre}" %>
+
+<%= form_with url: "/ingredients/#{@recipe.id}", method: :get, local: true do %>
+
+<% @ingredients.each do |ingredient| %>
+<p><%= ingredient.name %>:<%= ingredient.cost %></p>
+
+<% end %>
+<% end %>
