@@ -35,7 +35,8 @@ RSpec.describe 'recipe show page', type: :feature do
         new_recipe_id = Recipe.last.id 
         visit "/recipes/#{pizza.id}"
 
-        expect(page).to have_content("Total Cost: #{pizza.total_cost}")
+        expect(page).to have_content(8)
+
       end
     end
   end
