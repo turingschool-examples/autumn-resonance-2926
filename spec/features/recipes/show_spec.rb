@@ -31,16 +31,17 @@ RSpec.describe "Recipe Show Page" do
       expect(page).to have_content("#{@ingr4.name}")
       expect(page).to_not have_content("#{@ingr1.name}")
       expect(page).to_not have_content("#{@ingr2.name}")
-      save_and_open_page
     end
   end
 
-  describe "US-3 Active Record: Total cosst of ingredients for recipe" do 
-    xit 'On recipe show page, I see the total cost of all ingredients in the recipe' do 
+  describe "US-3 Active Record: Total cost of ingredients for recipe" do 
+    it 'On recipe show page, I see the total cost of all ingredients in the recipe' do 
       visit "/recipes/#{@recipe1.id}"
 
       expect(page).to have_content("Total Cost: 120")
       expect(page).to_not have_content("Total Cost: 15")
+
+      
     end
   end
 end
