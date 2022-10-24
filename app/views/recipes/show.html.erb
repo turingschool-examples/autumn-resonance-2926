@@ -4,7 +4,7 @@
 <p>Recipe Complexity: <%= @recipe.complexity %></p>
 <p>Food Genre: <%= @recipe.genre %></p>
 <p>Ingredients: 
-<% @ingredients.flatten.each do |ingredient| %>
+<% @ingredients.each do |ingredient| %>
   <%= ingredient.name %>
 <% end %>,</p>
 <p>Ingredients Total Cost: <%= @ingredients_cost %></p>
