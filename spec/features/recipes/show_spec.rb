@@ -23,6 +23,20 @@ RSpec.describe 'recipe show page', type: :feature do
 
 
       end
+
+      it 'i see the total cost of all ingredients in recipe' do 
+        cheese = Ingredient.create!(name: "Cheese", cost: 3)
+        salami = Ingredient.create!(name: "Salami", cost: 5)
+        broccoli = Ingredient.create!(name: "Broccoli", cost: 4)
+        pizza = Recipe.create!(name: "Pizza", complexity: 4, genre: "Italian")
+        RecipeIngredient.create!(ingredient: cheese, recipe: pizza)
+        RecipeIngredient.create!(ingredient: salami, recipe: pizza)
+
+        new_recipe_id = Recipe.last.id 
+        visit "/recipes/#{pizza.id}"
+
+        expect(page).to have_content("Total Cost: #{pizza.total_cost}")
+      end
     end
   end
 end
