@@ -13,7 +13,7 @@ RSpec.describe "Recipe Show Page" do
   end
 
   describe "US-2: Listing ingredients in recipes on their show page" do 
-    xit " WhenI visit a recipe show page, I see recipe's name, complexity and genre." do 
+    it " WhenI visit a recipe show page, I see recipe's name, complexity and genre." do 
 
       visit "/recipes/#{@recipe1.id}"
 
@@ -24,13 +24,14 @@ RSpec.describe "Recipe Show Page" do
       expect(page).to_not have_content("#{@recipe2.name}")
     end
 
-    xit 'On recipe show page, I see list of ingredient names for that particular recipe' do 
+    it 'On recipe show page, I see list of ingredient names for that particular recipe' do 
       visit "/recipes/#{@recipe1.id}"
 
-      expect(page).to have_content("#{ingr3.name}")
-      expect(page).to have_content("#{ingr4.name}")
-      expect(page).to_not have_content("#{ingr1.name}")
-      expect(page).to_not have_content("#{ingr2.name}")
+      expect(page).to have_content("#{@ingr3.name}")
+      expect(page).to have_content("#{@ingr4.name}")
+      expect(page).to_not have_content("#{@ingr1.name}")
+      expect(page).to_not have_content("#{@ingr2.name}")
+      save_and_open_page
     end
   end
 
