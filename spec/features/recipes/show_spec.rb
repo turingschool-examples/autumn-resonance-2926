@@ -26,6 +26,21 @@ RSpec.describe "Recipes show page" do
           expect(page).to have_content("- Pecorino Cheese")
         end
       end
+
+      it "shows the total cost of all the ingredients in the recipe" do 
+        cheese = Ingredient.create!(name: "Pecorino Cheese", cost: 10)
+        pasta = Ingredient.create!(name: "Penne Pasta", cost: 2)
+        tomatoes = Ingredient.create!(name: "Tomatoes", cost: 4)
+        pasta_recipe = Recipe.create!(name: "Pasta Marinara", complexity: 1, genre: "Italian")
+
+        RecipeIngredient.create!(recipe: pasta_recipe, ingredient: cheese)
+        RecipeIngredient.create!(recipe: pasta_recipe, ingredient: pasta)
+        RecipeIngredient.create!(recipe: pasta_recipe, ingredient: tomatoes)
+
+        visit "/recipes/#{pasta_recipe.id}"
+
+        expect(page).to have_content("Total Cost: 16")
+      end
     end
   end
 end
