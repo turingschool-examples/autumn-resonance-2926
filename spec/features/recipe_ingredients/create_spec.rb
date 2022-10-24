@@ -13,7 +13,7 @@ RSpec.describe "Creating a new ingredient for a recipe" do
         RecipeIngredient.create!(recipe: recipe, ingredient: pasta)
 
         visit "/recipes/#{recipe.id}"
-        
+
         within "#ingredients" do 
           expect(page).to_not have_content("- Tomatoes")
         end
