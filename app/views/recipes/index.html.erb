@@ -1,0 +1,12 @@
+
+
+<table>
+  <tr>
+    <th>Recipe Name</th>
+  </tr>
+<% @recipes.each do |r| %>
+  <tr>
+    <td><%= link_to r.name, "/recipes/#{r.id}" %></td>
+  </tr>
+<% end %>
+</table>
