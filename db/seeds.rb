@@ -6,3 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+RecipeIngredient.destroy_all
+Ingredient.destroy_all
+Recipe.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('ingredients')
+ActiveRecord::Base.connection.reset_pk_sequence!('recipes')
+ActiveRecord::Base.connection.reset_pk_sequence!('recipe_ingredients')
