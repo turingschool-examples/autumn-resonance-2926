@@ -4,4 +4,8 @@ class Ingredient < ApplicationRecord
 
   validates :name, presence: true
   validates :cost, presence: true
+
+  def self.order_alphabatically
+    order(name: :asc)
+  end
 end
