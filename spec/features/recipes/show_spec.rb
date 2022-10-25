@@ -25,7 +25,7 @@ RSpec.feature "Recipe show page", type: :feature do
   it 'should show the total cost of all of the recipe ingredients' do
     visit "/recipes/#{recipe.id}"
 
-    expect(page).to have_content("Total Cost: #{@ingredient_1.cost + ingredient_2.cost + ingredient_3.cost}")
+    expect(page).to have_content("Total Cost: #{@ingredient_1.cost + @ingredient_2.cost + @ingredient_3.cost}")
   end
  end
 end
