@@ -28,7 +28,6 @@ RSpec.describe 'ingredients index page', type: :feature do
         RecipeIngredient.create!(ingredient: salami, recipe: pizza)
         visit '/ingredients' 
         expect(page.text.index(cheese.name)).to be < page.text.index(salami.name)
-        # expect("Name: Cheese Cost: 3").to appear_before("Name: Salami Cost: 5")
       end
     end
   end
