@@ -18,3 +18,15 @@ feta = Ingredient.create!(name: "Feta Cheese", cost: 7)
 
 spaghetti = Recipe.create!(name: "Spaghetti", complexity: 1, genre: "Italian")
 chicken_orzo = Recipe.create!(name: "Chicken Orzo", complexity: 3, genre: "Greek")
+
+RecipeIngredient.create!(recipe: spaghetti, ingredient: ground_beef)
+RecipeIngredient.create!(recipe: spaghetti, ingredient: salt)
+RecipeIngredient.create!(recipe: spaghetti, ingredient: pasta)
+RecipeIngredient.create!(recipe: spaghetti, ingredient: tomato_paste)
+RecipeIngredient.create!(recipe: spaghetti, ingredient: butter)
+RecipeIngredient.create!(recipe: chicken_orzo, ingredient: butter)
+RecipeIngredient.create!(recipe: chicken_orzo, ingredient: salt)
+RecipeIngredient.create!(recipe: chicken_orzo, ingredient: chicken)
+RecipeIngredient.create!(recipe: chicken_orzo, ingredient: orzo)
+RecipeIngredient.create!(recipe: chicken_orzo, ingredient: feta)
+
