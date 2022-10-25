@@ -10,13 +10,19 @@ RSpec.describe("Ingredients Show page") do
     @ing2 = Ingredient.create!(    name: "Pepper",     cost: 6)
     @ing3 = Ingredient.create!(    name: "Ground Beef",     cost: 10)
     @ing_rec1 = RecipeIngredient.create!(    ingredient_id: @ing1.id,     recipe_id: @reciepe1.id)
+    @ing_rec2 = RecipeIngredient.create!(    ingredient_id: @ing2.id,     recipe_id: @reciepe1.id)
   end
 
-  it("can shows the recipes name, complexity,genre") do
+  it("can shows the recipes name, complexity,genre AND ingredients used!") do
     visit("/recipes/#{@reciepe1.id}")
     expect(page).to(have_content("Name:#{@reciepe1.name}"))
     expect(page).to(have_content("Complexity:#{@reciepe1.complexity}"))
     expect(page).to(have_content("Genre:#{@reciepe1.genre}"))
     expect(page).to(have_content("Ingredients:#{@ing1.name}"))
+  end
+
+  it("see the total cost of all ingredients in the recipe") do
+    visit("/recipes/#{@reciepe1.id}")
+    expect(page).to(have_content("Total Cost:10"))
   end
 end
