@@ -7,3 +7,9 @@
 <% end %>
 <h3> Total Cost: </h3>
 <p> <%= @total_cost %> </p>
+
+<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, local: true do |f| %>
+  <%= f.label :ingredient_id %>
+  <%= f.number_field :ingredient_id %>
+  <%= f.submit value: "Submit"%>
+<% end %>

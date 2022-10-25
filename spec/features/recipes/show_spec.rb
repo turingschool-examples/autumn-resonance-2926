@@ -34,4 +34,17 @@ RSpec.describe 'index' do
     expect(page).to have_content("Total Cost")
     expect(page).to have_content(8)
    end
+
+   it "has a form to add a new ingredient to the recipe" do
+    visit "/recipes/#{@recipe_1.id}"
+
+    expect(page).to have_selector(:css, "form")
+
+    fill_in :ingredient_id, with: @ingredient_4.id
+    click_on "Submit"
+
+
+    expect(page.current_path).to eql("/recipes/#{@recipe_1.id}")
+    expect(page).to have_content(@ingredient_4.name)
+   end
 end
