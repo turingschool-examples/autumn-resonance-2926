@@ -36,5 +36,27 @@ RSpec.describe 'recipe show page' do
 
       expect(page).to have_content('Cost of Ingredients: $3')
     end
+
+    it 'sees a form to add an ingredient to recipe' do
+      visit "/recipes/#{@recipe1.id}"
+
+      expect(page).to have_selector(:css, 'form')
+      expect(find('form')).to have_content('Ingredient id:')
+      expect(page).to have_button('Add Ingredient')
+    end
+
+    it 'fills in form with existing ingredient ID and when I hit submit, it takes me back to show page with ingredient listed' do
+      visit "/recipes/#{@recipe1.id}"
+      expect(page).to_not have_content(@ingredient3.name)
+
+      fill_in('ingredient_id', with: @ingredient3.id.to_s)
+      click_button('Add Ingredient')
+
+      expect(current_path).to eq("/recipes/#{@recipe1.id}")
+      expect(page).to have_content(@ingredient1.name)
+      expect(page).to have_content(@ingredient2.name)
+      expect(page).to have_content(@ingredient3.name)
+      expect(page).to have_content('Cost of Ingredients: $7')
+    end
   end
 end

@@ -9,3 +9,10 @@ Required Ingredients:
         *<%= ingredient.name %>
     <% end %>
 </p>
+
+Add New Ingredient:
+<%= form_with url: "/recipes/#{@recipe.id}", method: :get, local: true do |f| %>
+  <%= f.label 'Ingredient id:' %>
+  <%= f.text_field :ingredient_id %>
+  <%= f.submit 'Add Ingredient'%>
+<% end %>
