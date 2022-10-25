@@ -26,6 +26,9 @@ RSpec.describe Ingredient do
     end
 
     it "should display the price of each ingredient" do
+      save_and_open_page
+      expect(page).to have_content("Ingredient cost 4")
+      expect(page).not_to have_content("Ingredient cost 4.5")
     end
 
   end

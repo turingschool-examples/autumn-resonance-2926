@@ -1,4 +1,6 @@
-<h2>Ingredients Show Page</h2>
+<h2>Ingredients Index Page</h2>
 <% @ingredients.each do |ingredient| %>
-  <ul><%= ingredient.name %></ul>
+  <ol> <%= ingredient.name%></ol>
+  <ol>Ingredient cost <%= ingredient.cost %></ol>
+  <br>
   <% end %>
