@@ -1,0 +1,9 @@
+<h1>Recipe Show Page</h1>
+
+<ul>Name:<%=@reciepe.name %></ul>
+<ul>Complexity:<%=@reciepe.complexity %></ul>
+<ul>Genre:<%=@reciepe.genre %></ul>
+
+<% @reciepe.ingredients.each do |i| %>
+<ul>Ingredients:<%= i.name %></ul>
+<% end %>
