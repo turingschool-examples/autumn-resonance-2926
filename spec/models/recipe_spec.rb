@@ -11,4 +11,17 @@ RSpec.describe Recipe, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:ingredients).through(:recipe_ingredients)}
   end
+
+  describe 'instance methods' do
+    describe ".needed_ingredients" do
+      it 'returns the names of ingredients needed by the recipe' do
+        recipe = Recipe.create!(name: "Steak Stew", complexity: 2, genre: "American")
+        ingredient_1 = recipe.ingredients.create!(name: 'Steak', cost: 10)
+        ingredient_2 = recipe.ingredients.create!(name: 'Tomato', cost: 3)
+        ingredient_3 = recipe.ingredients.create!(name: 'Carrot', cost: 2)
+    
+        expect(recipe.needed_ingredients).to eq(['Steak', 'Tomato', 'Carrot'])
+      end
+    end
+  end
 end

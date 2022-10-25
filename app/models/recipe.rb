@@ -4,4 +4,8 @@ class Recipe < ApplicationRecord
   validates_presence_of :genre
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+
+  def needed_ingredients
+    ingredients.pluck(:name)
+  end
 end
