@@ -4,4 +4,6 @@
 <p> Ingredients: </p>
 <% @recipe.ingredients.each do |ingredient|%>
 <p> <%=ingredient.name%></p>
+<p> Total Cost: <%=@recipe.ingredients_total%></p>
+
 <% end %>
