@@ -17,7 +17,7 @@ RSpec.describe 'index' do
     @recipe_ingredient_7 = RecipeIngredient.create!(recipe_id: @recipe_2.id, ingredient_id: @ingredient_4.id)
   end
 
-   it "lists all ingredients along with name and cost" do
+   it "lists all ingredients along with name, complexity, and genre" do
     visit "/recipes/#{@recipe_1.id}"
 
     expect(page).to have_content(@recipe_1.name)
@@ -26,5 +26,12 @@ RSpec.describe 'index' do
     expect(page).to have_content(@ingredient_2.name, count: 1)
     expect(page).to have_content(@ingredient_3.name, count: 1)
     expect(page).to_not have_content(@ingredient_4.name)
+   end
+
+   it "shows the total cost of all the ingredients added together" do
+    visit "/recipes/#{@recipe_1.id}"
+
+    expect(page).to have_content("Total Cost")
+    expect(page).to have_content(8)
    end
 end
