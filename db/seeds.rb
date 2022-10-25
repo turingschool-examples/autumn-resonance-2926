@@ -15,3 +15,6 @@ butter = Ingredient.create!(name: "Butter", cost: 5)
 chicken = Ingredient.create!(name: "Chicken", cost: 10)
 orzo = Ingredient.create!(name: "Orzo", cost: 3)
 feta = Ingredient.create!(name: "Feta Cheese", cost: 7)
+
+spaghetti = Recipe.create!(name: "Spaghetti", complexity: 1, genre: "Italian")
+chicken_orzo = Recipe.create!(name: "Chicken Orzo", complexity: 3, genre: "Greek")
