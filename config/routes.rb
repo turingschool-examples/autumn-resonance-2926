@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/ingredients', to: 'ingredients#index'
 
   get '/recipes/:id', to: 'recipes#show'
+
+  post '/recipe_ingredients/add_ingredient', to: 'recipe_ingredients#add_ingredient'
 end

@@ -9,9 +9,10 @@
   <p><%= ingredient.name %></p>
 <% end %>
 
-<%= form_with url: "/recipes/#{@recipe.id}", method: :patch, local: true do |form| %>
+<%= form_with url: "/recipe_ingredients/add_ingredient", method: :post, local: true do |form| %>
 <%= form.label :name, 'Add Ingredient to This Recipe' %>
 <%= form.text_field :name %><br>
+<%= hidden_field_tag :recipe_id, @recipe.id %>
 <%= form.submit 'Add Ingredient' %>
 <% end %>
 

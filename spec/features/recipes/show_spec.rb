@@ -44,7 +44,7 @@ RSpec.describe 'the recipes show page' do
     expect(page).to have_content('Total Cost: 11')
   end
 
-  it 'has a form to add a new ingredient to a recipe' do
+  it 'can add a new ingredient to a recipe' do
     salt = Ingredient.create!(name: 'Salt', cost: '2')
     beef = Ingredient.create!(name: 'Ground Beef', cost: '6')
     tomato = Ingredient.create!(name: 'Tomatoes', cost: '3')
@@ -59,5 +59,17 @@ RSpec.describe 'the recipes show page' do
     visit "/recipes/#{ragu.id}"
 
     expect(page).to have_field('Add Ingredient to This Recipe')
-    end
+
+    fill_in('Add Ingredient to This Recipe', with: 'Wine')
+    click_on('Add Ingredient')
+    expect(current_path).to eq("/recipes/#{ragu.id}")
+    expect(page).to have_content('Ragu Bolognese')
+    expect(page).to have_content('3')
+    expect(page).to have_content('Italian')
+    expect(page).to have_content('Ground Beef')
+    expect(page).to have_content('Tomatoes')
+    expect(page).to have_content('Salt')
+    expect(page).to have_content('Wine')
+    expect(page).to have_content('Total Cost: 20')
+  end
 end
