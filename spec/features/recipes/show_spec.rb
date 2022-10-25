@@ -9,7 +9,7 @@ RSpec.feature "Recipe show page", type: :feature do
     @ingredient_3 = @recipe.ingredients.create!(name: 'Carrot', cost: 2)
   end
   it 'should display a list of all the ingredients including name and cost' do
-    visit "/recipes/#{recipe.id}"
+    visit "/recipes/#{@recipe.id}"
 
     expect(page).to have_content("Steak Stew")
     expect(page).to have_content("Complexity: 2")
@@ -23,7 +23,7 @@ RSpec.feature "Recipe show page", type: :feature do
   end
 
   it 'should show the total cost of all of the recipe ingredients' do
-    visit "/recipes/#{recipe.id}"
+    visit "/recipes/#{@recipe.id}"
 
     expect(page).to have_content("Total Cost: #{@ingredient_1.cost + @ingredient_2.cost + @ingredient_3.cost}")
   end
