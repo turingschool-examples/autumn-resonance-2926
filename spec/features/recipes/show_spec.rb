@@ -70,7 +70,8 @@ RSpec.describe 'recipe show page - /recipes/:id/show.html.erb', type: :feature d
 
         visit "/recipes/#{chicken_orzo.id}"
 
-        expect(
+        expect(page).to have_content(chicken_orzo.total_cost)
+        expect(page).to_not have_content(spaghetti.total_cost)
       end
     end
   end
