@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
 
   def index
-    @ingredients = Ingredient.all
+    @ingredients = Ingredient.alphabetically_by_name
   end
 end
