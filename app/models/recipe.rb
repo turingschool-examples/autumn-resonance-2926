@@ -7,7 +7,6 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
 
   def total_cost
-    # require 'pry'; binding.pry
     ingredients.sum(:cost)
   end
 end
