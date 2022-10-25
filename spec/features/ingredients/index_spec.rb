@@ -23,5 +23,17 @@ RSpec.describe 'the ingredients index page' do
       expect(page).to have_content('4')
     end
   end
+
+  it 'lists the ingredients in alphabetical order' do
+    salt = Ingredient.create!(name: 'Salt', cost: '2')
+    beef = Ingredient.create!(name: 'Ground Beef', cost: '6')
+    chicken = Ingredient.create!(name: 'Chicken Thighs', cost: '4')
+
+    visit '/ingredients'
+    save_and_open_page
+    expect('Chicken Thighs').to appear_before('Ground Beef', only_text: true)
+    expect('Ground Beef').to appear_before('Salt', only_text: true)
+  end
+  
   
 end
