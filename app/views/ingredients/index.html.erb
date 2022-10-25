@@ -1,6 +1,6 @@
 <h2>Ingredients Index Page</h2>
-<% @ingredients.each do |ingredient| %>
-  <ol> <%= ingredient.name%></ol>
+<% @ingredients.appear_alphabetically.each do |ingredient| %>
+  <ol> <%= ingredient.name %></ol>
   <ol>Ingredient cost <%= ingredient.cost %></ol>
   <br>
   <% end %>
