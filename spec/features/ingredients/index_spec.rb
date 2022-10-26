@@ -18,6 +18,7 @@ RSpec.describe "Ingredients" do
      expect(page).to have_content("Salt")
      expect(page).to have_content(4)
      expect(page).to_not have_content("Milk")
+   
     end
 
    end

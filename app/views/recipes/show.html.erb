@@ -1,9 +1,16 @@
 <h1> Recipes </h1>
 
-  <%= @recipes.name %>
-  <%= @recipes.complexity %>
-  <%= @recipes.genre %>
-<% @recipes.ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
+Name: <%= @recipes.name %>
+<p> Complexity: <%= @recipes.complexity %></p>
+<p> Genre: <%= @recipes.genre %></p>
+List the Recipe ingredients:
+<ul>
+ <% @recipes.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %></li>
 <% end %>
-<p> Total Cost:<%= @total_cost %></p>
+</ul>
+ <%# total_cost = 0 %>
+<%# @recipes.ingredients.each do |ingredient| %>
+  <%# total_cost += ingredient.cost %>
+<%# end %>
+<p> Total Cost: <%= @recipes.total_cost %></p>

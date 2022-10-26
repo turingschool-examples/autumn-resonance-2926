@@ -11,4 +11,19 @@ RSpec.describe Recipe, type: :model do
     it {should have_many :recipe_ingredients}
     it {should have_many(:ingredients).through(:recipe_ingredients)}
   end
+
+  describe "Instance methods" do 
+    it "#total_cost" do 
+       ingredient1 = Ingredient.create!(name: "Ground Beef", cost: 2)
+     ingredient2 = Ingredient.create!(name: "Salt", cost: 4)
+
+     recipe = Recipe.create!(name: "Beef and Salt", complexity: 0, genre: "American")
+     
+     recipe.ingredients << ingredient1 
+     recipe.ingredients << ingredient2 
+     
+     expect(recipe.total_cost).to eq(6)
+
+    end
+  end
 end
